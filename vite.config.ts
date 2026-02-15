@@ -11,6 +11,7 @@ export default defineConfig({
     tailwindcss(),
     mdx({
       jsxImportSource: 'react',
+      include: /\.mdx$/,
     }),
   ],
   resolve: {

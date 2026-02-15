@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { GuideLayout } from './feature/guide';
+import { GuidePage } from './feature/guide';
 import { Navbar } from './feature/layout/Navbar';
 import { ThemeProvider } from './feature/theme/ThemeProvider';
 import Home from './pages/Home';
@@ -15,8 +17,11 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/playground' element={<Playground />} />
             <Route path='/markdown' element={<Markdown />} />
-            {/* <Route path='/guide' element={<Guide />} />
-            <Route path='/guide/:section' element={<Guide />} /> */}
+            <Route path='/guide' element={<GuideLayout />}>
+              <Route index element={<GuidePage />} />
+              <Route path=':categorySlug' element={<GuidePage />} />
+              <Route path=':categorySlug/:pageSlug' element={<GuidePage />} />
+            </Route>
           </Routes>
         </div>
       </BrowserRouter>

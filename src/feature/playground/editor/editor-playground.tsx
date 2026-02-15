@@ -13,6 +13,7 @@ export default function EditorPlayground() {
     <div className='min-h-screen pt-20'>
       <div className='container mx-auto max-w-6xl px-4 py-2'>
         <WhiteEditor
+          editable={false}
           editorClassName='!border !border-border !rounded-md !h-[calc(100vh-100px)] w-full'
           contentClassName='h-full w-full rounded-md'
           onCreate={() => {

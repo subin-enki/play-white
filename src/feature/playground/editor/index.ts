@@ -1,1 +1,1 @@
-export * from './editor-playground';
+export { default as EditorPlayground } from './editor-playground';

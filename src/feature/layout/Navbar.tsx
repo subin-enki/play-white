@@ -24,7 +24,7 @@ export function Navbar() {
       </Link>
       <div className='border-border flex items-center justify-center gap-2 rounded-full border px-1 py-1'>
         {navItems.map((item) => {
-          const isActive = location.pathname === item.path;
+          const isActive = item.path === '/' ? location.pathname === '/' : location.pathname.startsWith(item.path);
           return (
             <Link
               key={item.path}

@@ -1,4 +1,4 @@
-import EditorPlayground from '@/feature/playground/editor/editor-playground';
+import { EditorPlayground } from '@/feature/playground';
 
 export default function Playground() {
   return <EditorPlayground />;
