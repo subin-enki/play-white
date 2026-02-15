@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (function () {
+        var key = 'white-web-theme';
+        var root = document.documentElement;
+        var theme = null;
+        var stored = localStorage.getItem(key);
+        if (stored === 'light' || stored === 'dark') {
+          theme = stored;
+        } else {
+          var legacy = localStorage.getItem('theme');
+          if (legacy === 'light' || legacy === 'dark') {
+            localStorage.setItem(key, legacy);
+            theme = legacy;
+          } else {
+            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          }
+        }
+        root.classList.remove('light', 'dark');
+        root.classList.add(theme);
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/w-3d.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/src/index.css" rel="stylesheet">
+    <title>White Editor</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
