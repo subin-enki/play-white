@@ -21,7 +21,7 @@ function ScrollToTop() {
 function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter>
+      <BrowserRouter basename='/play-white'>
         <ScrollToTop />
         <div className='bg-background text-foreground min-h-screen min-w-[375px]'>
           <Navbar />
