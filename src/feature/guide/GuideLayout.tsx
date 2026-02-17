@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
-import { GuideSidebar } from './GuideSidebar';
 import { useIsMobile } from '@/hooks/useMobile';
 import { SidebarProvider, SidebarInset, SidebarTrigger } from '@/ui/sidebar';
+import { GuideSidebar } from './GuideSidebar';
 
 export function GuideLayout() {
   const isMobile = useIsMobile();

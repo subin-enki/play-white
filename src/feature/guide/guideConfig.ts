@@ -4,6 +4,7 @@ export interface GuidePageItem {
   slug: string;
   label: string;
   playground?: LazyExoticComponent<ComponentType>;
+  playgroundDescription?: string;
 }
 
 export interface GuideCategory {
@@ -21,6 +22,7 @@ export const guideConfig: GuideCategory[] = [
       {
         slug: 'quick-start',
         label: 'Quick Start',
+        playground: lazy(() => import('./playgrounds/QuickStartPlayground')),
       },
     ],
   },
@@ -75,11 +77,25 @@ export const guideConfig: GuideCategory[] = [
     id: 'extensions',
     label: 'Extensions',
     pages: [
-      { slug: 'mention', label: 'Mention' },
-      { slug: 'page-mention', label: 'Page Mention' },
-      { slug: 'image-upload', label: 'Image Upload' },
+      { slug: 'mention', label: 'Mention', playground: lazy(() => import('./playgrounds/MentionPlayground')) },
+      {
+        slug: 'page-mention',
+        label: 'Page Mention',
+        playground: lazy(() => import('./playgrounds/PageMentionPlayground')),
+      },
+      {
+        slug: 'image-upload',
+        label: 'Image Upload',
+        playground: lazy(() => import('./playgrounds/ImageUploadPlayground')),
+      },
       { slug: 'character-count', label: 'Character Count' },
-      { slug: 'custom-extensions', label: 'Custom Extensions' },
+      {
+        slug: 'custom-extensions',
+        label: 'Custom Extensions',
+        playground: lazy(() => import('./playgrounds/CustomExtensionPlayground')),
+        playgroundDescription:
+          '위 가이드에서 설명한 Video Embed 커스텀 노드를 실제로 등록한 에디터입니다.\n YouTube/Vimeo URL을 입력하여 비디오를 삽입하고, Viewer 모드에서 동일하게 렌더링되는지 확인해보세요.',
+      },
     ],
   },
   {

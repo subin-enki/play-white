@@ -10,7 +10,8 @@ export default function EditorPlayground() {
   const editorRef = useRef<WhiteEditorRef>(null);
 
   return (
-    <div className='min-h-screen pt-20'>
+    <div className='flex min-h-screen flex-col gap-6 pt-20'>
+      <h1 className='text-center text-xl font-bold'>Editor Playground</h1>
       <div className='container mx-auto max-w-6xl px-4 py-2'>
         <WhiteEditor
           editable={false}

@@ -5,13 +5,17 @@
 ## Setup
 
 ```tsx
+const users = [
+  { uuid: 1, name: 'White Lee', nickname: 'white' },
+  { uuid: 2, name: 'Black Kim', nickname: 'black' },
+  { uuid: 3, name: 'Gray Park', nickname: 'gray' },
+  { uuid: 4, name: 'Blue Choi', nickname: 'blue' },
+];
+
 <WhiteEditor
   extension={{
     mention: {
-      data: [
-        { uuid: 1, name: 'White Lee', nickname: 'white' },
-        { uuid: 2, name: 'Black Kim', nickname: 'black' },
-      ],
+      data: users,
       id: 'uuid',
       label: 'nickname',
     },
@@ -38,12 +42,12 @@
 extension={{
   mention: {
     data: users,
-    id: 'userId',
-    label: 'username',
+    id: 'uuid',
+    label: 'nickname',
     renderLabel: (user) => (
       <div className="flex items-center gap-2">
         <img src={user.avatar} className="h-5 w-5 rounded-full" />
-        <span>{user.displayName}</span>
+        <span>{user.name}</span>
       </div>
     ),
   },

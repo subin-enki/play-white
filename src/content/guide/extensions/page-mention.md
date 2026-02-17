@@ -5,33 +5,34 @@
 ## Setup
 
 ```tsx
-interface Page {
-  pageId: string;
-  title: string;
-  url: string;
-  path?: string;
-  icon?: string;
-}
+const users = [
+  { uuid: 1, name: 'White Lee', nickname: 'white' },
+  { uuid: 2, name: 'Black Kim', nickname: 'black' },
+  { uuid: 3, name: 'Gray Park', nickname: 'gray' },
+  { uuid: 4, name: 'Blue Choi', nickname: 'blue' },
+];
 
-const pages: Page[] = [
+const pages = [
   { pageId: '1', title: 'Project Overview', url: '/pages/1', path: '/docs/project' },
   { pageId: '2', title: 'API Documentation', url: '/pages/2', path: '/docs/api' },
+  { pageId: '3', title: 'Getting Started', url: '/pages/3', path: '/docs/getting-started' },
+  { pageId: '4', title: 'Release Notes', url: '/pages/4', path: '/docs/release-notes' },
 ];
 
 <WhiteEditor
   extension={{
     mention: {
       data: users,
-      id: 'userId',
-      label: 'username',
+      id: 'uuid',
+      label: 'nickname',
     },
     pageMention: {
       data: pages,
       id: 'pageId',
       title: 'title',
       href: 'url',
-      path: 'path',       // 선택사항
-      icon: 'icon',       // 선택사항
+      path: 'path',       // optional
+      icon: 'icon',       // optional
     },
   }}
 />

@@ -10,8 +10,8 @@ export default function QuickStartPlayground() {
       <WhiteEditor
         ref={editorRef}
         placeholder='Type something here...'
-        editorClassName='!rounded-lg'
-        contentClassName='min-h-[300px] p-4'
+        editorClassName='rounded-lg'
+        contentClassName='min-h-[300px] rounded-lg'
       />
     </div>
   );

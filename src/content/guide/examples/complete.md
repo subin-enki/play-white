@@ -60,7 +60,13 @@ function CompleteExample() {
           brandDefault: 'var(--color-brand-default)',
           brandWeak: 'var(--color-brand-weak)',
         },
-        zIndex: {},
+        zIndex: {
+          toolbar: 10,
+          inline: 10,
+          handle: 10,
+          overlay: 10,
+          floating: 20,
+        },
       }}
     >
       <WhiteEditor
@@ -84,10 +90,6 @@ function CompleteExample() {
               { label: 'Heading 2', level: 2 },
             ],
           },
-          image: {
-            maxSize: 1024 * 1024 * 10,
-            accept: 'image/*',
-          },
         }}
         extension={{
           mention: {
@@ -109,6 +111,9 @@ function CompleteExample() {
           },
           imageUpload: {
             upload: handleImageUpload,
+            maxSize: 1024 * 1024 * 10,
+            accept: 'image/*',
+            limit: 1,
             onSuccess: (url) => console.log('Uploaded:', url),
             onError: (error) => console.error('Failed:', error),
           },

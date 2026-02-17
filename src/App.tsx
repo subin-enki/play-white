@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { GuideLayout } from './feature/guide';
 import { GuidePage } from './feature/guide';
 import { Navbar } from './feature/layout/Navbar';
@@ -7,10 +8,21 @@ import Home from './pages/Home';
 import Markdown from './pages/Markdown';
 import Playground from './pages/Playground';
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <div className='bg-background text-foreground min-h-screen'>
           <Navbar />
           <Routes>

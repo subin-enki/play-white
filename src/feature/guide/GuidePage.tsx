@@ -44,7 +44,7 @@ export function GuidePage() {
   return (
     <article className='mx-auto flex max-w-5xl flex-col gap-8'>
       <div className='min-h-[200px]'>
-        <BaseWhiteViewer content={jsonContent} tableOfContents={{ position: 'right', maxLevel: 3 }} />
+        <BaseWhiteViewer content={jsonContent} tableOfContents={{ position: 'right', maxLevel: 4 }} />
       </div>
 
       {PlaygroundComponent && (
@@ -52,6 +52,9 @@ export function GuidePage() {
           <hr className='border-border' />
           <section className='flex flex-col gap-4'>
             <h2 className='text-xl font-semibold'>Try it</h2>
+            {page.playgroundDescription && (
+              <p className='text-muted-foreground text-sm whitespace-pre-wrap'>{page.playgroundDescription}</p>
+            )}
             <Suspense
               fallback={
                 <div className='text-muted-foreground flex items-center justify-center py-12 text-sm'>

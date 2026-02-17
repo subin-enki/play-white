@@ -63,9 +63,7 @@ export const ALL_COLOR_KEYS = COLOR_GROUPS.flatMap((g) => g.items.map((i) => i.k
 /** Returns all default color values for the given mode */
 export function getDefaultColors(mode: 'light' | 'dark'): Record<string, string> {
   return Object.fromEntries(
-    COLOR_GROUPS.flatMap((g) =>
-      g.items.map((i) => [i.key, mode === 'dark' ? i.defaultDark : i.defaultLight])
-    )
+    COLOR_GROUPS.flatMap((g) => g.items.map((i) => [i.key, mode === 'dark' ? i.defaultDark : i.defaultLight]))
   );
 }
 

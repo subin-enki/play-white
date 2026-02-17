@@ -1,8 +1,8 @@
 # Image Upload
 
-`extension.imageUpload` 옵션 및/또는 `toolbarProps.image`를 통해 이미지 업로드를 설정합니다.
+에디터에 이미지를 업로드하고 삽입할 수 있습니다. 파일 선택 또는 드래그 앤 드롭으로 이미지를 추가합니다.
 
-## Extension Config
+## Setup
 
 ```tsx
 const handleImageUpload = async (file: File): Promise<string> => {
@@ -17,26 +17,52 @@ const handleImageUpload = async (file: File): Promise<string> => {
   extension={{
     imageUpload: {
       upload: handleImageUpload,
-      onSuccess: (url) => console.log('Uploaded:', url),
-      onError: (error) => console.error('Failed:', error),
+      maxSize: 1024 * 1024 * 10,  // 10MB
+      accept: 'image/*',
+      limit: 1,
     },
   }}
 />
 ```
 
-## ImageUpload Config
+## ImageUploadConfig
 
 이미지 업로드 익스텐션의 설정 옵션입니다.
 
-| Property | Type | Description |
-| --- | --- | --- |
-| `upload` | `(file: File) => Promise<string>` | 이미지 URL을 반환하는 업로드 함수 |
-| `onSuccess` | `(url: string) => void` | 업로드 성공 시 호출 |
-| `onError` | `(error: Error) => void` | 업로드 실패 시 호출 |
+| Property | Type | Default | Description |
+| --- | --- | --- | --- |
+| `upload` | `(file: File) => Promise<string>` | — | 이미지 URL을 반환하는 업로드 함수 |
+| `accept` | `string` | `'image/*'` | 허용 파일 타입 |
+| `maxSize` | `number` | `50MB` | 최대 파일 크기 (바이트) |
+| `limit` | `number` | `1` | 한 번에 업로드 가능한 최대 파일 수 |
+| `onSuccess` | `(url: string) => void` | — | 업로드 성공 시 호출 |
+| `onError` | `(error: Error) => void` | — | 업로드 실패 시 호출 |
+| `onImageInserted` | `(url: string, caption?: string) => void` | — | 이미지가 에디터에 삽입된 후 호출 |
+
+## Callbacks
+
+업로드 성공/실패 시 콜백을 설정할 수 있습니다:
+
+```tsx
+extension={{
+  imageUpload: {
+    upload: handleImageUpload,
+    onSuccess: (url) => {
+      console.log('이미지 업로드 성공:', url);
+    },
+    onError: (error) => {
+      console.error('이미지 업로드 실패:', error.message);
+    },
+    onImageInserted: (url, caption) => {
+      console.log('이미지 삽입 완료:', url);
+    },
+  },
+}}
+```
 
 ## Toolbar Image Button
 
-익스텐션과 독립적으로 또는 함께 이미지 툴바 버튼을 커스터마이징할 수 있습니다:
+`toolbarProps.image`를 통해 이미지 툴바 버튼의 UI를 커스터마이징할 수 있습니다:
 
 ```tsx
 <WhiteEditor
@@ -47,23 +73,18 @@ const handleImageUpload = async (file: File): Promise<string> => {
   }}
   toolbarProps={{
     image: {
-      maxSize: 1024 * 1024 * 10,  // 10MB
-      accept: 'image/*',
-      closeOnError: true,          // 에러 시 모달 닫기 (기본값: true)
+      icon: <MyCustomIcon />,
+      className: 'custom-image-button',
     },
   }}
 />
 ```
 
-## ImageDialogProps
+### ImageToolbarButtonProps
 
-이미지 업로드 다이얼로그의 설정 옵션입니다.
+이미지 툴바 버튼의 UI 설정 옵션입니다.
 
 | Property | Type | Default | Description |
 | --- | --- | --- | --- |
-| `maxSize` | `number` | `5MB` | 최대 파일 크기 (바이트) |
-| `accept` | `string` | — | 허용 파일 타입 |
-| `upload` | `(file: File) => Promise<string>` | — | 업로드 함수 |
-| `onSuccess` | `(url: string) => void` | — | 성공 콜백 |
-| `onError` | `(error: Error) => void` | — | 에러 콜백 |
-| `closeOnError` | `boolean` | `true` | 에러 시 모달 닫기 |
+| `icon` | `React.ReactNode` | `<ImagePlusIcon />` | 커스텀 아이콘 |
+| `className` | `string` | — | 추가 CSS 클래스 |

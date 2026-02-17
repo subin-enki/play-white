@@ -32,7 +32,7 @@
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: hsl(var(--border)) hsl(var(--background));
+  scrollbar-color: hsl(var(--muted)) transparent;
 }
 
 html {
@@ -155,10 +155,11 @@ body {
 
 ::-webkit-scrollbar {
   width: 5px;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(var(--background));
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -199,6 +200,11 @@ body {
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+
+/* 에디터 내부 pageMention 클릭 방지 (뷰어에서만 클릭 가능) */
+.tiptap [data-type="pageMention"] {
+  pointer-events: none;
+}
 
 /* global.css */
 body[data-scroll-locked] {

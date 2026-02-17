@@ -57,7 +57,7 @@ export function GuideSidebar() {
               }
 
               return (
-                <Collapsible key={category.id} defaultOpen={isCategoryActive} className='group/collapsible'>
+                <Collapsible key={category.id} defaultOpen className='group/collapsible'>
                   <SidebarMenuItem>
                     <CollapsibleTrigger asChild>
                       <SidebarMenuButton>
