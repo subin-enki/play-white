@@ -1,5 +1,6 @@
 import { Sun, Moon } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import w3dImg from '@/assets/w-3d.png';
 import { useThemeContext } from '@/feature/theme';
 import { Button } from '@/ui';
 
@@ -20,7 +21,7 @@ export function Navbar() {
         to='/'
         className='text-foreground hover:text-foreground/70 text-sm font-light tracking-wider transition-colors'
       >
-        <img src={'/src/assets/w-3d.png'} className='h-10 w-10' />
+        <img src={w3dImg} className='h-10 w-10' />
       </Link>
       <div className='border-border flex items-center justify-center gap-2 rounded-full border px-1 py-1'>
         {navItems.map((item) => {
