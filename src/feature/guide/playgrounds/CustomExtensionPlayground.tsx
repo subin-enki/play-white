@@ -178,7 +178,7 @@ export default function CustomExtensionPlayground() {
   return (
     <div className='flex flex-col gap-4'>
       {/* Controls */}
-      <div className='border-border bg-muted/30 flex flex-col gap-5 rounded-xl border p-5'>
+      <div className='border-border flex flex-col gap-5 rounded-xl border p-5'>
         {/* Mode Switcher */}
         <div className='flex flex-col gap-2.5'>
           <span className='text-muted-foreground text-xs font-medium tracking-wide uppercase'>Mode</span>

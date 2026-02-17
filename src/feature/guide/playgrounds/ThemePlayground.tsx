@@ -58,7 +58,7 @@ export default function ThemePlayground() {
   return (
     <div className='flex flex-col gap-4'>
       {/* ─── Controls ─── */}
-      <div className='border-border bg-muted/30 flex flex-col gap-5 rounded-xl border p-5'>
+      <div className='border-border flex flex-col gap-5 rounded-xl border p-5'>
         {/* Section Switcher */}
         <div className='flex flex-col gap-2.5'>
           <span className='text-muted-foreground text-xs font-medium tracking-wide uppercase'>Section</span>
@@ -120,8 +120,8 @@ export default function ThemePlayground() {
         >
           <WhiteEditor
             ref={editorRef}
-            placeholder='테마 변경 사항을 실시간으로 확인해보세요...'
-            contentClassName='min-h-[250px] p-4'
+            placeholder='Check the theme changes in real time...'
+            contentClassName='min-h-[250px]'
           />
         </WhiteEditorThemeProvider>
       </div>

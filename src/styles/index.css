@@ -30,40 +30,9 @@
   --color-ring: hsl(var(--ring));
 }
 
-* {
-  scrollbar-width: thin;
-  scrollbar-color: hsl(var(--muted)) transparent;
-}
-
-html {
-  scroll-behavior: smooth;
-  overflow-y: scroll;
-}
-
-body {
-  @apply antialiased;
-  font-family:
-    'Pretendard Variable',
-    Pretendard,
-    -apple-system,
-    serif;
-}
-
 @theme {
   --font-prtendard: 'Pretendard Variable', Pretendard, -apple-system, serif;
   --breakpoint-xs: 20rem;
-}
-
-@layer base {
-  *,
-  ::after,
-  ::before {
-    border-color: var(--color-border);
-  }
-  body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-  }
 }
 
 @layer base {
@@ -149,20 +118,6 @@ body {
   }
 }
 
-::-webkit-scrollbar {
-  width: 5px;
-  background: transparent;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: hsl(var(--border));
-  border-radius: 5px;
-}
-
 :root {
   --sidebar: hsl(0 0% 98%);
   --sidebar-foreground: hsl(240 5.3% 26.1%);
@@ -196,6 +151,39 @@ body {
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+
+body {
+  @apply antialiased;
+  font-family:
+    'Pretendard Variable',
+    Pretendard,
+    -apple-system,
+    serif;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 5px;
+}
+
+.white-editor {
+  scrollbar-width: thin;
+  scrollbar-color: var(--we-border-default) transparent !important;
+}
 
 /* 에디터 내부 pageMention 클릭 방지 (뷰어에서만 클릭 가능) */
 .tiptap [data-type="pageMention"] {
@@ -215,3 +203,16 @@ html body[data-scroll-locked] {
   margin-left: 0px !important;  /* For RTL layout */
   overflow: visible !important;
 }
+
+@layer base {
+  *,
+  ::after,
+  ::before {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+

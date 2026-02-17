@@ -66,7 +66,7 @@ export default function RefApiPlayground() {
   return (
     <div className='flex flex-col gap-4'>
       {/* Controls */}
-      <div className='border-border bg-muted/30 flex flex-col gap-5 rounded-xl border p-5'>
+      <div className='border-border flex flex-col gap-5 rounded-xl border p-5'>
         {/* Status */}
         <div className='flex flex-col gap-2.5'>
           <span className='text-accent-foreground text-xs font-medium tracking-wide uppercase'>Status</span>
@@ -129,7 +129,7 @@ export default function RefApiPlayground() {
       {output && (
         <div className='flex flex-col gap-2'>
           <span className='text-muted-foreground text-xs font-medium tracking-wide uppercase'>Output</span>
-          <div className='border-border bg-muted/30 flex flex-col gap-2 rounded-xl border p-5'>
+          <div className='border-border flex flex-col gap-2 rounded-xl border p-5'>
             <span className='text-sm font-medium'>{output.label}</span>
             <pre className='bg-muted max-h-[300px] overflow-auto rounded-lg p-4 text-xs'>{output.data}</pre>
           </div>
