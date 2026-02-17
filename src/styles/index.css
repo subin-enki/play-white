@@ -151,6 +151,13 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+
+*,
+::after,
+::before {
+  border-color: var(--color-border);
+}
+
 html {
   scroll-behavior: smooth;
   overflow-y: scroll;
@@ -163,6 +170,11 @@ body {
     Pretendard,
     -apple-system,
     serif;
+}
+
+html, body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
 }
 
 ::-webkit-scrollbar {
@@ -202,17 +214,5 @@ html body[data-scroll-locked] {
   margin-right: 0px !important; /* For LTR layout */
   margin-left: 0px !important;  /* For RTL layout */
   overflow: visible !important;
-}
-
-@layer base {
-  *,
-  ::after,
-  ::before {
-    border-color: var(--color-border);
-  }
-  body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-  }
 }
 
