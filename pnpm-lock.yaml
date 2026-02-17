@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@0ffen/white-editor':
-        specifier: ^2.0.0-rc.1
-        version: 2.0.0-rc.1(@tiptap/suggestion@3.19.0(@tiptap/core@3.19.0(@tiptap/pm@3.19.0))(@tiptap/pm@3.19.0))(@types/react-dom@19.2.3(@types/react@19.2.13))(@types/react@19.2.13)(highlight.js@11.11.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
+        specifier: ^2.0.0-rc.2
+        version: 2.0.0-rc.2(@tiptap/suggestion@3.19.0(@tiptap/core@3.19.0(@tiptap/pm@3.19.0))(@tiptap/pm@3.19.0))(@types/react-dom@19.2.3(@types/react@19.2.13))(@types/react@19.2.13)(highlight.js@11.11.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
       '@mdx-js/react':
         specifier: ^3.1.1
         version: 3.1.1(@types/react@19.2.13)(react@19.2.4)
@@ -174,8 +174,8 @@ importers:
 
 packages:
 
-  '@0ffen/white-editor@2.0.0-rc.1':
-    resolution: {integrity: sha512-aYuoYZPhg/K6Z5BWrX86LCa8P5K/L/D2VcJ5sQTDM0j9uTMLiGaF9nxFDzrpZQjPOq0zxC5QPYaSOu/wjI7w+g==, tarball: https://npm.pkg.github.com/download/@0ffen/white-editor/2.0.0-rc.1/ea73a9bf23deb19b57eabd3b377d6ce611807092}
+  '@0ffen/white-editor@2.0.0-rc.2':
+    resolution: {integrity: sha512-Hm91/47nGXubsr23e11H3MYSdvXaIVqezwH1q/ULmcDimcdOvwcEea0oOr//N6OPnEThS60gewDGyG0FebPIDw==, tarball: https://npm.pkg.github.com/download/@0ffen/white-editor/2.0.0-rc.2/6ca2b727e3dc89233c63406a0ffaab26026176c8}
     peerDependencies:
       react: ^19.2.0
       react-dom: ^19.2.0
@@ -4273,7 +4273,7 @@ packages:
 
 snapshots:
 
-  '@0ffen/white-editor@2.0.0-rc.1(@tiptap/suggestion@3.19.0(@tiptap/core@3.19.0(@tiptap/pm@3.19.0))(@tiptap/pm@3.19.0))(@types/react-dom@19.2.3(@types/react@19.2.13))(@types/react@19.2.13)(highlight.js@11.11.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)':
+  '@0ffen/white-editor@2.0.0-rc.2(@tiptap/suggestion@3.19.0(@tiptap/core@3.19.0(@tiptap/pm@3.19.0))(@tiptap/pm@3.19.0))(@types/react-dom@19.2.3(@types/react@19.2.13))(@types/react@19.2.13)(highlight.js@11.11.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)':
     dependencies:
       '@floating-ui/dom': 1.7.5
       '@floating-ui/react': 0.27.17(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
