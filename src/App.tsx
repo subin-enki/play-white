@@ -23,7 +23,7 @@ function App() {
     <ThemeProvider>
       <BrowserRouter>
         <ScrollToTop />
-        <div className='bg-background text-foreground min-h-screen'>
+        <div className='bg-background text-foreground min-h-screen min-w-[375px]'>
           <Navbar />
           <Routes>
             <Route path='/' element={<Home />} />

@@ -15,7 +15,7 @@ export function GuideLayout() {
             <SidebarTrigger />
           </header>
         )}
-        <main className='min-w-0 flex-1 px-10 py-3 md:py-8'>
+        <main className='min-w-0 flex-1 px-10 py-8'>
           <Outlet />
         </main>
       </SidebarInset>

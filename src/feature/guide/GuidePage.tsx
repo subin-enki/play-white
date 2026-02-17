@@ -1,5 +1,6 @@
 import { Suspense, useMemo } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
+import { useIsMobile } from '@/hooks';
 import { WhiteViewer as BaseWhiteViewer } from '@0ffen/white-editor';
 import { convertHtmlToJson, createEmptyContent, markdownToHtml } from '@0ffen/white-editor/util';
 import { findPageConfig, getFirstPagePath } from './guideConfig';
@@ -22,6 +23,8 @@ function getMarkdown(categorySlug: string, pageSlug: string): string {
 
 export function GuidePage() {
   const { categorySlug, pageSlug } = useParams();
+  const isMobile = useIsMobile();
+
   const config = categorySlug && pageSlug ? findPageConfig(categorySlug, pageSlug) : null;
 
   const jsonContent = useMemo(() => {
@@ -44,7 +47,10 @@ export function GuidePage() {
   return (
     <article className='mx-auto flex max-w-5xl flex-col gap-8'>
       <div className='min-h-[200px]'>
-        <BaseWhiteViewer content={jsonContent} tableOfContents={{ position: 'right', maxLevel: 4 }} />
+        <BaseWhiteViewer
+          content={jsonContent}
+          tableOfContents={{ position: isMobile ? 'top' : 'right', maxLevel: 3 }}
+        />
       </div>
 
       {PlaygroundComponent && (
