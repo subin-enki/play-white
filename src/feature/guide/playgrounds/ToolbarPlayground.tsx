@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useImageUpload } from '@/hooks';
 import { cn } from '@/lib/utils';
 import { WhiteEditor } from '@/ui';
 import type { WhiteEditorRef, ToolbarItem } from '@0ffen/white-editor';
@@ -34,6 +35,8 @@ const ITEM_GROUPS: { label: string; items: ToolbarItem[] }[] = [
 
 export default function ToolbarPlayground() {
   const editorRef = useRef<WhiteEditorRef>(null);
+  const imageUpload = useImageUpload();
+  const [showSelectionToolbar, setShowSelectionToolbar] = useState(true);
   const [mode, setMode] = useState<'preset' | 'custom'>('preset');
   const [preset, setPreset] = useState<string>('default');
   const [customItems, setCustomItems] = useState<Set<ToolbarItem>>(
@@ -83,6 +86,29 @@ export default function ToolbarPlayground() {
               </button>
             ))}
           </div>
+        </div>
+
+        {/* Selection Toolbar Toggle */}
+        <div className='flex flex-col gap-2.5'>
+          <span className='text-muted-foreground text-xs font-medium tracking-wide uppercase'>Selection Toolbar</span>
+          <label className='inline-flex w-fit cursor-pointer items-center gap-2.5'>
+            <button
+              type='button'
+              onClick={() => setShowSelectionToolbar((v) => !v)}
+              className={cn(
+                'relative inline-flex h-5 w-9 shrink-0 rounded-full transition-colors',
+                showSelectionToolbar ? 'bg-primary' : 'bg-muted-foreground/30'
+              )}
+            >
+              <span
+                className={cn(
+                  'bg-background pointer-events-none mt-0.5 block h-4 w-4 rounded-full shadow-sm transition-transform',
+                  showSelectionToolbar ? 'translate-x-4.5' : 'translate-x-0.5'
+                )}
+              />
+            </button>
+            <span className='text-foreground text-sm'>{showSelectionToolbar ? 'Enabled' : 'Disabled'}</span>
+          </label>
         </div>
 
         {/* Preset Options */}
@@ -165,6 +191,8 @@ export default function ToolbarPlayground() {
         <WhiteEditor
           ref={editorRef}
           toolbarItems={toolbarItems}
+          showSelectionToolbar={showSelectionToolbar}
+          extension={{ imageUpload }}
           placeholder='Try different toolbar configurations...'
           editorClassName='rounded-lg'
           contentClassName='min-h-[250px] rounded-lg'

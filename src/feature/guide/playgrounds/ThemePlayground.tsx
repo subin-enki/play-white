@@ -1,5 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import { useThemeContext } from '@/feature/theme';
+import { useImageUpload } from '@/hooks';
 import { cn } from '@/lib/utils';
 import { WhiteEditor, WhiteEditorThemeProvider, type WhiteEditorRef } from '@0ffen/white-editor';
 import { getDefaultColors, SECTION_LABELS, type SectionId } from '../constants';
@@ -7,6 +8,7 @@ import { ThemeColorsSection, ThemeModeSection, ThemeZIndexSection } from '../ui'
 
 export default function ThemePlayground() {
   const editorRef = useRef<WhiteEditorRef>(null);
+  const imageUpload = useImageUpload();
   const { theme: rootTheme } = useThemeContext();
 
   const [section, setSection] = useState<SectionId>('mode');
@@ -120,6 +122,7 @@ export default function ThemePlayground() {
         >
           <WhiteEditor
             ref={editorRef}
+            extension={{ imageUpload }}
             placeholder='Check the theme changes in real time...'
             contentClassName='min-h-[250px]'
           />

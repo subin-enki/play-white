@@ -1,4 +1,5 @@
 import { useRef, useState, useCallback } from 'react';
+import { useImageUpload } from '@/hooks';
 import { WhiteEditor } from '@/ui';
 import { Button } from '@/ui';
 import type { WhiteEditorRef } from '@0ffen/white-editor';
@@ -13,6 +14,7 @@ let logId = 0;
 
 export default function EventsPlayground() {
   const editorRef = useRef<WhiteEditorRef>(null);
+  const imageUpload = useImageUpload();
   const [logs, setLogs] = useState<LogEntry[]>([]);
   const [editorEmpty, setEditorEmpty] = useState(true);
   const [count, setCount] = useState(0);
@@ -30,6 +32,7 @@ export default function EventsPlayground() {
       <div className='border-border rounded-lg border'>
         <WhiteEditor
           ref={editorRef}
+          extension={{ imageUpload }}
           placeholder='Type, click, and focus to see events...'
           editorClassName='rounded-lg'
           contentClassName='min-h-[200px]'

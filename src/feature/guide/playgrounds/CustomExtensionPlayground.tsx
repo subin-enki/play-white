@@ -1,4 +1,5 @@
 import { useRef, useState, useCallback } from 'react';
+import { useImageUpload } from '@/hooks';
 import { cn } from '@/lib/utils';
 import { WhiteEditor } from '@/ui';
 import { WhiteViewer as BaseWhiteViewer, type JSONContent } from '@0ffen/white-editor';
@@ -143,6 +144,7 @@ type Mode = 'editor' | 'viewer';
 
 export default function CustomExtensionPlayground() {
   const editorRef = useRef<WhiteEditorRef>(null);
+  const imageUpload = useImageUpload();
   const [mode, setMode] = useState<Mode>('editor');
   const [url, setUrl] = useState('');
   const [viewerContent, setViewerContent] = useState<JSONContent | null>(null);
@@ -249,6 +251,7 @@ export default function CustomExtensionPlayground() {
           <WhiteEditor
             ref={editorRef}
             customNodes={[VideoEmbedNode]}
+            extension={{ imageUpload }}
             placeholder='Insert a video using the controls above, or type text...'
             editorClassName='rounded-lg'
             contentClassName='min-h-[300px] rounded-lg'

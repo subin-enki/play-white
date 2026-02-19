@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useImageUpload } from '@/hooks';
 import { WhiteEditor } from '@/ui';
 import type { WhiteEditorRef, JSONContent } from '@0ffen/white-editor';
 import { MINIMAL_TOOLBAR_ITEMS } from '@0ffen/white-editor';
@@ -38,6 +39,7 @@ const defaultContent: JSONContent = {
 
 export default function PageMentionPlayground() {
   const editorRef = useRef<WhiteEditorRef>(null);
+  const imageUpload = useImageUpload();
 
   return (
     <div className='border-border rounded-lg border'>
@@ -58,6 +60,7 @@ export default function PageMentionPlayground() {
             href: 'url',
             path: 'path',
           },
+          imageUpload,
         }}
         placeholder='@를 입력하여 멘션과 페이지 멘션을 사용해보세요...'
         editorClassName='rounded-lg'

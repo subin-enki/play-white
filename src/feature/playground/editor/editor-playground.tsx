@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useImageUpload } from '@/hooks';
 import { WhiteEditor } from '@/ui';
 import type { WhiteEditorRef } from '@0ffen/white-editor';
 
@@ -8,6 +9,7 @@ console.info('Code blocks are supported!');}</code></pre><p data-variant="1">Cre
 
 export default function EditorPlayground() {
   const editorRef = useRef<WhiteEditorRef>(null);
+  const imageUpload = useImageUpload();
 
   return (
     <div className='flex min-h-screen flex-col gap-6 pt-20'>
@@ -30,6 +32,7 @@ export default function EditorPlayground() {
               id: 'uuid',
               label: 'nickname',
             },
+            imageUpload,
           }}
         />
       </div>

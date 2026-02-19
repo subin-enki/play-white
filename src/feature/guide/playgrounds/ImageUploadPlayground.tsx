@@ -1,5 +1,6 @@
-import { useRef, useCallback } from 'react';
+import { useRef } from 'react';
 import click3dImg from '@/assets/click-3d.png';
+import { useImageUpload } from '@/hooks';
 import { WhiteEditor } from '@/ui';
 import type { WhiteEditorRef, JSONContent } from '@0ffen/white-editor';
 import { MINIMAL_TOOLBAR_ITEMS } from '@0ffen/white-editor';
@@ -30,24 +31,9 @@ const defaultContent: JSONContent = {
   ],
 };
 
-const fakeUpload = async (file: File): Promise<string> => {
-  return new Promise((resolve) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      setTimeout(() => {
-        resolve(reader.result as string);
-      }, 800);
-    };
-    reader.readAsDataURL(file);
-  });
-};
-
 export default function ImageUploadPlayground() {
   const editorRef = useRef<WhiteEditorRef>(null);
-
-  const handleUpload = useCallback(async (file: File): Promise<string> => {
-    return fakeUpload(file);
-  }, []);
+  const imageUpload = useImageUpload();
 
   return (
     <div className='border-border rounded-lg border'>
@@ -56,14 +42,7 @@ export default function ImageUploadPlayground() {
         content={defaultContent}
         toolbarItems={MINIMAL_TOOLBAR_ITEMS}
         extension={{
-          imageUpload: {
-            upload: handleUpload,
-            accept: 'image/*',
-            limit: 1,
-            maxSize: 1024 * 1024 * 10,
-            onSuccess: (url) => console.log('Uploaded:', url),
-            onError: (error) => console.error('Failed:', error),
-          },
+          imageUpload,
         }}
         placeholder='Upload an image...'
         editorClassName='rounded-lg'

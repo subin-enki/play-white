@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useImageUpload } from '@/hooks';
 import { cn } from '@/lib/utils';
 import { WhiteEditor } from '@/ui';
 import type { WhiteEditorRef } from '@0ffen/white-editor';
@@ -13,6 +14,7 @@ const METHOD_GROUPS: { label: string; items: string[] }[] = [
 
 export default function RefApiPlayground() {
   const editorRef = useRef<WhiteEditorRef>(null);
+  const imageUpload = useImageUpload();
   const [output, setOutput] = useState<{ label: string; data: string } | null>(null);
   const [isEmpty, setIsEmpty] = useState(true);
   const [charCount, setCharCount] = useState(0);
@@ -112,6 +114,7 @@ export default function RefApiPlayground() {
       <div className='border-border rounded-lg border'>
         <WhiteEditor
           ref={editorRef}
+          extension={{ imageUpload }}
           placeholder='Type something, then try the buttons above...'
           editorClassName='rounded-lg'
           contentClassName='min-h-[200px] rounded-lg'
