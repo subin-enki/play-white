@@ -29,7 +29,10 @@ export function GuideSidebar() {
               <Link to='/guide'>
                 <div className='flex flex-col gap-0.5 leading-none'>
                   <span className='font-semibold'>White Editor</span>
-                  <span className='text-xs'>Developer Guide</span>
+                  <div className='flex items-center gap-2'>
+                    <span className='text-xs'>Developer Guide</span>
+                    <span className='text-primary bg-primary-weak rounded-full p-1 px-1.5 text-[10px]'>v2.0 rc-3</span>
+                  </div>
                 </div>
               </Link>
             </SidebarMenuButton>
