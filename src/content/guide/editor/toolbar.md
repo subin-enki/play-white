@@ -8,6 +8,14 @@
 <WhiteEditor showToolbar={false} placeholder="Simple input without toolbar." />
 ```
 
+## Selection Toolbar
+
+텍스트를 선택하면 나타나는 플로팅 툴바를 `showSelectionToolbar`로 끌 수 있습니다. 기본값은 `true`입니다
+
+```tsx
+<WhiteEditor showSelectionToolbar={false} />
+```
+
 ## Toolbar Presets
 
 세 가지 프리셋 설정을 제공합니다:
